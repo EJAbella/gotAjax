@@ -12,12 +12,12 @@ const houseHeir = document.querySelector('#houseHeir')
 
 const getChar = (link) => {
   axios.get(link)
-    .then(response => {
-      const data = response.data
-      charName.textContent = `Name: ${data.name}`
-      charTitle.textContent = `Titles: ${data.titles}`
-      charSpouse.innerHTML = `Spouse: <a href=''>${data.spouse}</a>`
-    })
+  .then(response => {
+    const data = response.data
+    charName.textContent = `Name: ${data.name}`
+    charTitle.textContent = `Titles: ${data.titles}`
+    charSpouse.innerHTML = `Spouse: ${data.spouse}</a>`
+  })
 }
 
 charSubmit.addEventListener('click', e => {
@@ -27,7 +27,7 @@ charSubmit.addEventListener('click', e => {
       const data = response.data
       charName.textContent = `Name: ${data.name}`
       charTitle.textContent = `Titles: ${data.titles}`
-      charSpouse.innerHTML = `Spouse: <a href='${getChar(data.spouse)}'>${data.spouse}</a>`
+      charSpouse.innerHTML = `Spouse: <a onclick='getChar(${data.spouse})'>${data.spouse}</a>`
     })
 })
 
