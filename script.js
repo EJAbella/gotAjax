@@ -10,16 +10,6 @@ const houseRegion = document.querySelector('#houseRegion')
 const houseLeader = document.querySelector('#houseLeader')
 const houseHeir = document.querySelector('#houseHeir')
 
-const getChar = (link) => {
-  axios.get(link)
-  .then(response => {
-    const data = response.data
-    charName.textContent = `Name: ${data.name}`
-    charTitle.textContent = `Titles: ${data.titles}`
-    charSpouse.innerHTML = `Spouse: ${data.spouse}</a>`
-  })
-}
-
 charSubmit.addEventListener('click', e => {
   e.preventDefault()
   axios.get(`https://anapioficeandfire.com/api/characters/${charField.value}`)
@@ -27,7 +17,11 @@ charSubmit.addEventListener('click', e => {
       const data = response.data
       charName.textContent = `Name: ${data.name}`
       charTitle.textContent = `Titles: ${data.titles}`
-      charSpouse.innerHTML = `Spouse: <a onclick='getChar(${data.spouse})'>${data.spouse}</a>`
+
+      axios.get(data.spouse)
+        .then(response2 => {
+          charSpouse.innerHTML = `Spouse: <a href=''>${response2.data.name}<a>`
+        })
     })
 })
 
@@ -38,7 +32,13 @@ houseSubmit.addEventListener('click', e => {
       const data = response.data
       houseName.textContent = `House Name: ${data.name}`
       houseRegion.textContent = `Region: ${data.region}`
-      houseLeader.innerHTML = `Current Leader: <a href=''>${data.currentLord}</a>`
-      houseHeir.innerHTML = `Heir: <a href=''>${data.heir}<a>`
+      axios.get(data.currentLord)
+        .then(response2 => {
+          houseLeader.textContent = `Current Leader: ${response2.data.name}`
+        })
+      axios.get(data.heir)
+        .then(response2 => {
+          houseHeir.textContent = `Heir: ${response2.data.name}`
+        })
     })
 })
