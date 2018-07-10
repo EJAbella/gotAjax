@@ -3,10 +3,29 @@
   <head>
     <meta charset="utf-8">
     <title>Game of Thrones</title>
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-    <script src='./script.js'></script>
   </head>
   <body>
-
+    <form>
+      <input type="text" name="charField" value="" placeholder="Enter Character ID">
+      <button type="submit" name="charSubmit">Submit</button>
+    </form>
+    <div>
+      <h3 id='charName'></h3>
+      <p id='charTitle'></p>
+      <p id='charSpouse'></p>
+    </div>
+    <form>
+      <input type="text" name="houseField" value="" placeholder="Enter House ID">
+      <button type="submit" name="houseSubmit">Submit</button>
+    </form>
+    <div class='houses'>
+      <h3 id='houseName'></h3>
+      <p id='houseRegion'></p>
+      <p id='houseLeader'></p>
+      <p id='houseHeir'></p>
+    </div>
+    <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js'></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src='./script.js'></script>
   </body>
 </html>
