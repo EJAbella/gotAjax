@@ -3,27 +3,35 @@
   <head>
     <meta charset="utf-8">
     <title>Game of Thrones</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.1/united/bootstrap.min.css" rel="stylesheet" integrity="sha384-9nkB73MkhCaHgW6bdX2EbWnwXl8FUs1fTnR1UKUuic9Zqs/3u9VunCE/0hleKeUs" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <form>
-      <input type="text" name="charField" value="" placeholder="Enter Character ID">
-      <button type="submit" name="charSubmit">Submit</button>
-    </form>
+    <header>
+      <h1 class='text-primary'>GoT API Search</h1>
+      <form>
+        <input type="text" name="field" value="" placeholder="Enter Character ID">
+        <select class="selector" name="type">
+          <option value="char">Character</option>
+          <option value="house">House</option>
+        </select><br>
+        <button class='btn btn-primary' type="submit" name="search">Submit</button>
+      </form>
+    </header>
+    <hr>
     <div>
-      <h3 id='charName'></h3>
-      <p id='charTitle'></p>
-      <p id='charSpouse'></p>
+      <h3 id='charName'>Name: </h3>
+      <p id='charTitle'>Titles: </p>
+      <p id='charSpouse'>Spouse: </p>
     </div>
-    <form>
-      <input type="text" name="houseField" value="" placeholder="Enter House ID">
-      <button type="submit" name="houseSubmit">Submit</button>
-    </form>
+    <hr>
     <div class='houses'>
-      <h3 id='houseName'></h3>
-      <p id='houseRegion'></p>
-      <p id='houseLeader'></p>
-      <p id='houseHeir'></p>
+      <h3 id='houseName'>House Name: </h3>
+      <p id='houseRegion'>Region: </p>
+      <p id='houseLeader'>Current Leader: </p>
+      <p id='houseHeir'>Heir: </p>
     </div>
+    <hr>
     <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js'></script>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src='./script.js'></script>
