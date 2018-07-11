@@ -35,7 +35,6 @@ const charLoad = () => {
       const data = response.data
       charName.innerHTML = `Name: ${data.name}`
       charTitle.innerHTML = `Titles: ${data.titles}`
-      spouseHolder = data.spouse
       axios.get(data.spouse)
         .then(response2 => {
           charSpouse.innerHTML = `Spouse: <a href='' onclick='updateChar(spouseHolder)'>${response2.data.name}<a>`
